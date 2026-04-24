@@ -10,6 +10,7 @@ export function GlobalFilterBar({
   onPlant,
   packaging,
   onPackaging,
+  packagingOptions = [],
   lastRefresh,
   theme,
   onThemeToggle,
@@ -55,10 +56,12 @@ export function GlobalFilterBar({
         <label className="gfb-field">
           <span className="gfb-label">Packaging</span>
           <select value={packaging} onChange={(e) => onPackaging(e.target.value)} className="gfb-select">
-            <option value="all">All families</option>
-            <option value="can">Can</option>
-            <option value="pouch">Pouch</option>
-            <option value="cup">Cup</option>
+            <option value="all">All (for selected plant scope)</option>
+            {packagingOptions.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
           </select>
         </label>
         <div className="gfb-actions">

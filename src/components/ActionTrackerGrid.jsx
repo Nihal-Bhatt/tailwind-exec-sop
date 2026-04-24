@@ -1,6 +1,7 @@
 import { ExceptionTable } from './ExceptionTable.jsx';
 
 const cols = [
+  { key: 'action_id', label: 'Action ID' },
   { key: 'issue', label: 'Issue' },
   { key: 'owner', label: 'Owner' },
   { key: 'due', label: 'Due' },

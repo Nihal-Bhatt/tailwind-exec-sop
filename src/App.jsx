@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { packagingFilterOptions } from './data/plantHierarchy.js';
 import { GlobalFilterBar } from './components/GlobalFilterBar.jsx';
 import { ExecutiveSummary } from './pages/ExecutiveSummary.jsx';
 import { DemandHealth } from './pages/DemandHealth.jsx';
@@ -45,6 +46,14 @@ export default function App() {
     localStorage.setItem('sop-theme', theme);
   }, [theme]);
 
+  const packagingOptions = useMemo(() => packagingFilterOptions(plant), [plant]);
+
+  useEffect(() => {
+    if (packaging === 'all') return;
+    const ok = packagingOptions.some((o) => o.value === packaging);
+    if (!ok) setPackaging('all');
+  }, [plant, packaging, packagingOptions]);
+
   const breadcrumb = useMemo(() => {
     const parts = [period, plant !== 'all' ? plant.toUpperCase() : 'All plants', packaging !== 'all' ? packaging : 'All packaging'];
     return `Active: ${parts.join(' · ')}`;
@@ -85,12 +94,16 @@ export default function App() {
       <header className="app-header">
         <div className="app-header-top">
           <div className="app-brand">
-            <div className="app-brand-mark" aria-hidden>
-              iT
-            </div>
+            <img
+              className="app-logo"
+              src={`${import.meta.env.BASE_URL}images/itail-logo.png`}
+              alt="i-Tail Corporation"
+              width={132}
+              height={40}
+            />
             <div>
-              <h1>i-Tail Executive S&amp;OP Dashboard</h1>
-              <span>Demand · Production · Logistics · Inventory · Actions</span>
+              <h1>Executive S&amp;OP Dashboard</h1>
+              <span className="app-tagline">Nourishing one healthy family — demand, supply &amp; service in one view</span>
             </div>
           </div>
           {demo ? (
@@ -116,6 +129,7 @@ export default function App() {
           onPlant={setPlant}
           packaging={packaging}
           onPackaging={setPackaging}
+          packagingOptions={packagingOptions}
           lastRefresh={lastRefresh}
           theme={theme}
           onThemeToggle={() => setTheme((x) => (x === 'dark' ? 'light' : 'dark'))}
@@ -129,6 +143,8 @@ export default function App() {
           onExport={() => alert('Export would generate PDF/PNG/CSV with current filters (wire in backend).')}
           activeBreadcrumb={breadcrumb}
         />
+
+        <div className="pet-divider" aria-hidden />
 
         <div style={{ marginTop: '1rem' }}>{content}</div>
 

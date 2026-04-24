@@ -1,6 +1,7 @@
-import { IssueTreeCanvas } from '../components/IssueTreeCanvas.jsx';
-import { issueTreeNodes } from '../data/mockData.js';
+import { InteractiveIssueTree } from '../components/InteractiveIssueTree.jsx';
+import { useDashboardData } from '../context/DashboardDataContext.jsx';
 
 export function OtifIssueTree() {
-  return <IssueTreeCanvas roots={issueTreeNodes} detail={{ orders: 128, value: '฿ 4.2M' }} />;
+  const { rcaPaths } = useDashboardData();
+  return <InteractiveIssueTree paths={rcaPaths} />;
 }

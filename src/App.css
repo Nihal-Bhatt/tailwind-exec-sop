@@ -749,25 +749,33 @@
   text-transform: uppercase;
 }
 
-.badge--Open {
+.badge--open {
   background: var(--color-sky-light);
   color: var(--color-sky-dark);
 }
-.badge--In-progress {
+.badge--in-progress {
   background: var(--color-gold-light);
   color: var(--color-gold-dark);
 }
-.badge--Overdue {
+.badge--overdue {
   background: #ffebee;
   color: #b71c1c;
 }
-.badge--High {
+.badge--closed {
+  background: var(--color-teal-light);
+  color: var(--color-teal-dark);
+}
+.badge--high {
   background: #ffebee;
   color: #b71c1c;
 }
-.badge--Med {
+.badge--med {
   background: var(--color-orange-light);
   color: var(--color-orange-dark);
+}
+.badge--low {
+  background: var(--color-sky-light);
+  color: var(--color-sky-dark);
 }
 
 .et-head {
@@ -1138,3 +1146,375 @@
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+/* —— i-Tail brand header & logo —— */
+.app-logo {
+  height: 42px;
+  width: auto;
+  max-width: 148px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.app-tagline {
+  font-size: 0.78rem;
+  color: var(--color-teal-dark);
+  font-weight: 500;
+  max-width: 36rem;
+  line-height: 1.35;
+}
+
+[data-theme='dark'] .app-tagline {
+  color: var(--color-teal-light);
+}
+
+.app-header {
+  background: linear-gradient(180deg, var(--card-bg) 0%, var(--card-bg) 55%, rgba(82, 151, 129, 0.06) 100%);
+}
+
+[data-theme='dark'] .app-header {
+  background: linear-gradient(180deg, var(--card-bg) 0%, rgba(82, 151, 129, 0.08) 100%);
+}
+
+/* Extra pet motifs (paw + soft wave) — low contrast */
+.app-shell::after {
+  content: '';
+  position: fixed;
+  bottom: -5%;
+  right: -3%;
+  width: min(420px, 55vw);
+  height: min(420px, 55vw);
+  pointer-events: none;
+  opacity: 0.035;
+  background: radial-gradient(circle at 30% 40%, var(--color-gold) 0%, transparent 42%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232A62B9' opacity='.9' d='M50 18c-6 0-10 8-6 14 2 3 8 4 12 2 2-1 4-2 5 0 4 6 14 5 18-1 3-5 1-12-4-14-2-3-4-3-6-3-2 0-4 1-6 3-5-5-12-7-15-1-2 6 2 14 8 14 3 0 5-1 7-3 2 2 4 3 7 3 6 0 10-8 6-14-2-4-7-5-11-3'/%3E%3C/svg%3E");
+  background-size: auto, 180px;
+  z-index: 0;
+}
+
+.pet-divider {
+  height: 3px;
+  border-radius: 999px;
+  margin: 0.75rem 0 0;
+  background: linear-gradient(90deg, var(--color-gold-light), var(--color-teal-light), var(--color-royal-light));
+  opacity: 0.85;
+}
+
+/* —— Plant utilization (SS / SK split) —— */
+.plant-util-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .plant-util-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* —— RCA interactive tree —— */
+.rca-tree-shell {
+  background: linear-gradient(165deg, #0f1729 0%, #151e35 40%, #1a2744 100%);
+  border: 1px solid rgba(100, 158, 198, 0.35);
+  color: #e8eef5;
+  box-shadow: 0 8px 32px rgba(15, 23, 41, 0.35);
+}
+
+.rca-tree-shell .card-title,
+.rca-title {
+  color: #f0f6ff;
+}
+
+.rca-tree-shell .card-sub,
+.rca-sub {
+  color: rgba(200, 215, 235, 0.88);
+}
+
+.rca-tree-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.rca-legend-inline {
+  font-size: 0.72rem;
+  color: rgba(120, 200, 230, 0.95);
+}
+
+.rca-scroll {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.rca-col-hdr {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(140, 200, 230, 0.95);
+  margin-bottom: 0.5rem;
+  min-width: 720px;
+}
+
+.rca-col-hdr span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.rca-lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 720px;
+}
+
+.rca-lane {
+  display: grid;
+  gap: 0.35rem;
+  align-items: stretch;
+}
+
+.rca-lane-seg {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.rca-connector {
+  width: 10px;
+  height: 2px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg, rgba(100, 200, 255, 0.25), rgba(100, 200, 255, 0.85));
+  border-radius: 2px;
+}
+
+.rca-node {
+  flex: 1;
+  text-align: left;
+  border: 1px solid rgba(100, 158, 198, 0.35);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.45rem 0.5rem;
+  cursor: pointer;
+  color: #e8eef5;
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.rca-node:hover {
+  border-color: rgba(120, 210, 255, 0.75);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.rca-node--active {
+  border-color: #5ecfff;
+  box-shadow: 0 0 0 1px rgba(94, 207, 255, 0.5);
+}
+
+.rca-node--root {
+  background: rgba(42, 98, 185, 0.25);
+}
+
+.rca-node--ghost {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+.rca-bar-track {
+  height: 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.35rem;
+  overflow: hidden;
+}
+
+.rca-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #3ad0ff, #5ecfff);
+}
+
+.rca-node-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: rgba(240, 248, 255, 0.95);
+}
+
+.rca-node-vol {
+  font-size: 0.62rem;
+  color: rgba(180, 220, 255, 0.9);
+}
+
+.rca-node-pct {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #7ee0ff;
+}
+
+.rca-root-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.25rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2a62b9, #5ecfff);
+  color: #fff;
+}
+
+.rca-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .rca-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rca-tree-shell .it-detail-title {
+  color: var(--text-primary);
+}
+
+.rca-detail .it-detail-dl,
+.rca-hint {
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.rca-dl-row {
+  display: contents;
+}
+
+.rca-detail .it-detail-dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 0.75rem;
+}
+
+.rca-detail .it-detail-dl dt {
+  color: var(--text-secondary);
+}
+
+.rca-hint .card-sub {
+  color: var(--text-secondary);
+}
+
+.rca-hint code {
+  font-size: 0.78em;
+  background: var(--page-bg);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+/* —— Upload hub & templates —— */
+.upload-hub-intro .upload-hub-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.upload-msg {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-teal-dark);
+}
+
+[data-theme='dark'] .upload-msg {
+  color: var(--color-teal-light);
+}
+
+.template-group-card .template-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.template-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.template-row:last-child {
+  border-bottom: none;
+}
+
+.template-filename {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
+
+.upload-file-label {
+  display: inline-block;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+/* —— Action form —— */
+.action-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.action-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.action-form input,
+.action-form textarea,
+.action-form select {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: var(--border);
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.action-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.action-form-actions {
+  margin-top: 0.35rem;
+}
+
+.req {
+  color: var(--color-rag-red);
+}
+

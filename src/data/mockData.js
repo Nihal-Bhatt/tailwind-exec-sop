@@ -106,18 +106,6 @@ export const exceptionsSummary = [
   { title: '12 actions overdue', severity: 'red', impact: 'Med' },
 ];
 
-export const heatmapUtilization = {
-  rows: ['Alutray', 'Can', 'Cup', 'Pouch', 'Sachet'],
-  cols: ['SS', 'SK'],
-  values: [
-    [72, 88],
-    [105, 92],
-    [85, 79],
-    [91, 94],
-    [78, 81],
-  ],
-};
-
 export const heatmapRca = [
   { plant: 'SS', vessel: 32, customer: 18, material: 12, production: 22, wh: 10, external: 6 },
   { plant: 'SK', vessel: 28, customer: 22, material: 15, production: 18, wh: 12, external: 5 },
@@ -237,36 +225,6 @@ export const actionRows = [
     status: 'Overdue',
     severity: 'High',
     forum: 'Supply Review',
-  },
-];
-
-export const issueTreeNodes = [
-  {
-    id: 'root',
-    label: 'OTIF gap',
-    pct: 100,
-    children: [
-      {
-        id: 'delay',
-        label: 'Delay',
-        pct: 48,
-        children: [
-          { id: 'vessel', label: 'Vessel / cut-off', pct: 28 },
-          { id: 'prod', label: 'Production', pct: 12 },
-          { id: 'wh', label: 'WH / loading', pct: 8 },
-        ],
-      },
-      {
-        id: 'short',
-        label: 'Short',
-        pct: 35,
-        children: [
-          { id: 'mat', label: 'Material', pct: 18 },
-          { id: 'cust', label: 'Customer / order', pct: 17 },
-        ],
-      },
-      { id: 'both', label: 'Short + delay', pct: 17, children: [] },
-    ],
   },
 ];
 

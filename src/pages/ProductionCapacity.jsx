@@ -1,6 +1,6 @@
-import { HeatmapMatrix } from '../components/HeatmapMatrix.jsx';
+import { PlantUtilizationGrids } from '../components/PlantUtilizationGrids.jsx';
 import { UtilizationComboChart } from '../components/UtilizationComboChart.jsx';
-import { productionAdherence, heatmapUtilization } from '../data/mockData.js';
+import { productionAdherence } from '../data/mockData.js';
 import {
   BarChart,
   Bar,
@@ -41,13 +41,7 @@ export function ProductionCapacity() {
         />
       </div>
       <div className="span-12">
-        <HeatmapMatrix
-          title="Utilization heatmap — packaging × plant slice"
-          subtitle="RAG: &gt;100% red · 90–100% amber · &lt;80% underutilized"
-          rows={heatmapUtilization.rows}
-          cols={heatmapUtilization.cols}
-          values={heatmapUtilization.values}
-        />
+        <PlantUtilizationGrids subtitle="RAG: &gt;100% red · 90–100% amber · &lt;80% underutilized — separate matrices per plant" />
       </div>
     </div>
   );

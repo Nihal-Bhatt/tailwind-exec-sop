@@ -22,14 +22,21 @@ export function ExceptionTable({ title, subtitle, columns, rows, onRowClick }) {
           <tbody>
             {rows.map((row) => (
               <tr
-                key={row.id ?? row.issue}
+                key={row.action_id ?? row.id ?? row.issue}
                 className={onRowClick ? 'clickable' : ''}
                 onClick={() => onRowClick?.(row)}
               >
                 {columns.map((c) => (
                   <td key={c.key}>
                     {c.badge ? (
-                      <span className={`badge badge--${String(row[c.key]).replace(/\s+/g, '-')}`}>{row[c.key]}</span>
+                      <span
+                        className={`badge badge--${String(row[c.key])
+                          .replace(/\s+/g, '-')
+                          .replace(/[^a-zA-Z0-9-]/g, '')
+                          .toLowerCase()}`}
+                      >
+                        {row[c.key]}
+                      </span>
                     ) : (
                       row[c.key]
                     )}

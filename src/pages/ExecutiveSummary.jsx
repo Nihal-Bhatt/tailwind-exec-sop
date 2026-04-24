@@ -1,12 +1,11 @@
 import { KpiCard } from '../components/KpiCard.jsx';
 import { WaterfallCard } from '../components/WaterfallCard.jsx';
-import { HeatmapMatrix } from '../components/HeatmapMatrix.jsx';
+import { PlantUtilizationGrids } from '../components/PlantUtilizationGrids.jsx';
 import {
   kpiRibbon,
   waterfallBridge,
   momTrendStrip,
   exceptionsSummary,
-  heatmapUtilization,
   heatmapRca,
 } from '../data/mockData.js';
 import {
@@ -91,16 +90,10 @@ export function ExecutiveSummary({ onKpiNavigate }) {
           </div>
         </div>
 
-        <div className="span-6">
-          <HeatmapMatrix
-            title="Plant × packaging utilization"
-            subtitle="Effective capacity % — SS/SK cut (demo aggregate)"
-            rows={heatmapUtilization.rows}
-            cols={heatmapUtilization.cols}
-            values={heatmapUtilization.values}
-          />
+        <div className="span-12">
+          <PlantUtilizationGrids subtitle="Each plant uses its own packaging hierarchy (SS includes Alutray; SK adds Spout & Twin pouch)" />
         </div>
-        <div className="span-6">
+        <div className="span-12">
           <div className="card">
             <h3 className="card-title">OTIF RCA contribution by plant</h3>
             <p className="card-sub">% of misses — executive families</p>
