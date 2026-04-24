@@ -1,0 +1,68 @@
+:root {
+  --color-royal: #2a62b9;
+  --color-royal-dark: #1d4a8a;
+  --color-royal-light: #c5dffc;
+  --color-teal: #529781;
+  --color-teal-dark: #3c7061;
+  --color-teal-light: #d7eee8;
+  --color-sky: #649ec6;
+  --color-sky-dark: #45799d;
+  --color-sky-light: #deebf3;
+  --color-orange: #ef8733;
+  --color-orange-dark: #b36524;
+  --color-orange-light: #fbe6cf;
+  --color-gold: #f4bb43;
+  --color-gold-dark: #c29130;
+  --color-gold-light: #fcf0d3;
+  --color-off-white: #f2f2f2;
+  --color-gray-light: #d8d8d8;
+  --color-gray-mid: #a5a5a5;
+  --color-charcoal: #262626;
+  --color-white: #ffffff;
+  --color-rag-red: #c62828;
+  --color-rag-amber: #ef8733;
+  --color-rag-green: #2e7d32;
+
+  --page-bg: var(--color-off-white);
+  --card-bg: var(--color-white);
+  --text-primary: var(--color-charcoal);
+  --text-secondary: var(--color-gray-mid);
+  --border: 1px solid var(--color-gray-light);
+  --shadow: 0 2px 12px rgba(38, 38, 38, 0.06);
+  --shadow-hover: 0 6px 20px rgba(42, 98, 185, 0.12);
+  --radius-card: 18px;
+  --radius-sm: 10px;
+  --font: 'DM Sans', system-ui, sans-serif;
+  --chart-grid: #e8e8e8;
+  --chart-axis: #6a6a6a;
+  --tooltip-bg: #ffffff;
+  --tooltip-border: var(--color-gray-light);
+}
+
+[data-theme='dark'] {
+  --page-bg: #121417;
+  --card-bg: #1c1f24;
+  --text-primary: #f2f2f2;
+  --text-secondary: #a5a5a5;
+  --border: 1px solid #2e3238;
+  --shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 8px 28px rgba(42, 98, 185, 0.25);
+  --chart-grid: #2e3238;
+  --chart-axis: #b0b0b0;
+  --tooltip-bg: #262626;
+  --tooltip-border: #3d4249;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--page-bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
